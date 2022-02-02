@@ -12,11 +12,13 @@ jobs:
 
    centos9:
      docker:
-       - image: centos:9
+       - image: cimg/base:2020.01
      steps:
        - checkout
        - run:
             echo "Hi"
+            uname -a
+            lsb_release -a
 
 workflows:
    version: 2
