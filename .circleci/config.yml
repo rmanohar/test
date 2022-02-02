@@ -2,27 +2,27 @@ version: 2
 
 jobs:
    ubuntu18:
-     # Ubuntu 18
-     docker:
-       - image: ubuntu:18.04
-     steps:
-       - checkout
-       - run: 
-            echo "Hello"
+      # Ubuntu 18
+      docker:
+         - image: ubuntu:18.04
+      steps:
+         - checkout
+         - run:
+              echo "Hello"
 
    centos9:
-     docker:
-       - image: cimg/base:2020.01
-     steps:
-       - checkout
-       - run:
-            echo "Hi"
-            uname -a
-            lsb_release -a
+      docker:
+         - image: cimg/base:2020.01
+      steps:
+         - checkout
+         - run: |
+              echo "Hi"
+              uname -a
+              lsb_release -a
 
 workflows:
    version: 2
    build:
-     jobs: 
-        - ubuntu18
-        - centos9
+      jobs:
+         - ubuntu18
+         - centos9
