@@ -19,6 +19,17 @@ jobs:
               echo "Hi"
               uname -a
               lsb_release -a
+              
+   actlib:
+      docker:
+         - image: rajitmanohar/actlib:latest
+      steps:
+         - checkout
+         - run: |
+              echo "Hello!"
+              uname -a
+              lsb_release -a
+   
 
 workflows:
    version: 2
@@ -26,3 +37,4 @@ workflows:
       jobs:
          - ubuntu18
          - centos9
+         - actlib
