@@ -28,7 +28,7 @@ jobs:
          - run: |
               echo "Hello!"
               uname -a
-              lsb_release -a
+              which gcc
    
 
 workflows:
