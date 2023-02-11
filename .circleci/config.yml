@@ -8,7 +8,7 @@ jobs:
          - checkout
          - run: |
               echo "Hello"
-              aptk update
+              apk update
               apk add libedit zlib m4 make cmake fmt git boost openmpi llvm flex bison gcc g++
               git clone https://github.com/asyncvlsi/actflow
               cd actflow
