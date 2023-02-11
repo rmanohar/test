@@ -1,15 +1,15 @@
 version: 2
 
 jobs:
-   ubuntu:
+   alpine:
       docker:
-         - image: ubuntu
+         - image: alpine:latest
       steps:
          - checkout
          - run: |
               echo "Hello"
-              apt-get -q update -y
-              apt-get -q install -y libedit-dev zlib1g-dev m4 build-essential cmake libfmt-dev git cmake libboost-all-dev libopenmpi-dev llvm flex bison
+              aptk update
+              apk add libedit zlib m4 make cmake fmt git boost openmpi llvm flex bison gcc g++
               git clone https://github.com/asyncvlsi/actflow
               cd actflow
               git submodule update --init --recursive
@@ -33,4 +33,5 @@ workflows:
    version: 2
    build:
       jobs:
+         - alpine
          - actlib
