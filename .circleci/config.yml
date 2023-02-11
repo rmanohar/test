@@ -7,8 +7,10 @@ jobs:
          - image: ubuntu:18.04
       steps:
          - checkout
-         - run:
+         - run: |
               echo "Hello"
+              uname -a
+              lsb_release -a
 
    centos9:
       docker:
