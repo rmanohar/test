@@ -11,7 +11,7 @@ jobs:
               echo "Hello"
               apt-get -q update -y
               apt-get -q install -y libedit-dev zlib1g-dev m4 build-essential cmake libfmt-dev git cmake libboost-dev libopenmpi-dev llvm
-              git clone htps://github.com/asyncvlsi/actflow
+              git clone https://github.com/asyncvlsi/actflow
               cd actflow
               git submodule update --init --recursive
               uname -a
