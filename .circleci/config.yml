@@ -9,6 +9,8 @@ jobs:
          - checkout
          - run: |
               echo "Hello"
+              apt-get -q update -y
+              apt-get -q install -y libedit-dev zlib1g-dev m4 build-essential cmake libfmt-dev git cmake libboost-dev libopenmpi-dev llvm
               uname -a
 
    centos9:
