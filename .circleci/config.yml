@@ -25,10 +25,10 @@ jobs:
          - checkout
          - run: |
               echo "Hi"
-              yum update -y
-              yum install -y 'dnf-command(config-manager)'
+              dnf update -y
+              dnf install -y 'dnf-command(config-manager)'
               yum config-manager --set-enabled powertools -y
-              yum install -y gcc gcc-c++ diffutils make libedit-devel zlib-devel m4 flex bison git cmake libfmt-devel libboost-all-devel llvm
+              dnf install -y gcc gcc-c++ diffutils make libedit-devel zlib-devel m4 flex bison git cmake libfmt-devel libboost-all-devel llvm
               git clone https://github.com/asyncvlsi/actflow
               cd actflow
               git submodule update --init --recursive
