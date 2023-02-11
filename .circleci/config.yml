@@ -18,26 +18,6 @@ jobs:
               ./build
               uname -a
 
-   centos9:
-      docker:
-         - image: cimg/base:2020.01
-      steps:
-         - checkout
-         - run: |
-              echo "Hi"
-              dnf update -y
-              dnf install -y 'dnf-command(config-manager)'
-              yum config-manager --set-enabled powertools -y
-              dnf install -y gcc gcc-c++ diffutils make libedit-devel zlib-devel m4 flex bison git cmake libfmt-devel libboost-all-devel llvm
-              git clone https://github.com/asyncvlsi/actflow
-              cd actflow
-              git submodule update --init --recursive
-              mkdir /usr/local/cad
-              export ACT_HOME=/usr/local/cad
-              ./build
-              uname -a
-              lsb_release -a
-              
    actlib:
       docker:
          - image: rajitmanohar/actlib:latest
@@ -53,5 +33,4 @@ workflows:
    version: 2
    build:
       jobs:
-         - centos9
          - actlib
