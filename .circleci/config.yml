@@ -20,7 +20,7 @@ jobs:
 
    rocky:
       docker:
-         - image: rocky:9
+         - image: rockylinux:9
       steps:
          - checkout
          - run: |
