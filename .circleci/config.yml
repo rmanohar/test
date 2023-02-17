@@ -18,6 +18,24 @@ jobs:
               ./build
               uname -a
 
+   rocky:
+      docker:
+         - image: rocky:9
+      steps:
+         - checkout
+         - run: |
+              echo "Hello"
+              yum install -y 'dnf-command(config-manager)'
+              yum config-manager --set-enabled powertools -y
+              yum install -y gcc gcc-c++ diffutils make libedit-devel zlib-devel m4 cmake fmt-devel git boost-devel openmpi-devel llvm flex bison patch
+              git clone https://github.com/asyncvlsi/actflow
+              cd actflow
+              git submodule update --init --recursive
+              mkdir /usr/local/cad
+              export ACT_HOME=/usr/local/cad
+              ./build
+              uname -a
+
    actlib:
       docker:
          - image: rajitmanohar/actlib:latest
@@ -33,5 +51,4 @@ workflows:
    version: 2
    build:
       jobs:
-         - alpine
-         - actlib
+	 - rocky
