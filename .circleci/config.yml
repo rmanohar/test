@@ -25,7 +25,7 @@ jobs:
          - checkout
          - run: |
               echo "Hello"
-              dnf install gcc gcc-c++ diffutils make libedit-devel zlib-devel m4 cmake git boost-devel openmpi-devel llvm flex bison patch 
+              dnf install -y gcc gcc-c++ diffutils make libedit-devel zlib-devel m4 cmake git boost-devel openmpi-devel llvm flex bison patch 
               git clone https://github.com/libfmt/fmt
               cd fmt
               mkdir build
