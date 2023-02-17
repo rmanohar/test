@@ -25,7 +25,11 @@ jobs:
          - checkout
          - run: |
               echo "Hello"
-              dnf install gcc gcc-c++ diffutils make libedit-devel zlib-devel m4 cmake fmt-devel git boost-devel openmpi-devel llvm flex bison patch
+              dnf install gcc gcc-c++ diffutils make libedit-devel zlib-devel m4 cmake git boost-devel openmpi-devel llvm flex bison patch 
+              git clone https://github.com/libfmt/fmt
+              cd fmt
+              mkdir build
+              cd build && cmake .. && make && make install
               git clone https://github.com/asyncvlsi/actflow
               cd actflow
               git submodule update --init --recursive
