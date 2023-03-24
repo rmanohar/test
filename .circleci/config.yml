@@ -20,7 +20,7 @@ jobs:
 
    alma:
       docker:
-         - image: almalinux:latest
+         - image: almalinux:8.7
       steps:
          - checkout
          - run: |
