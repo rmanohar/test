@@ -18,6 +18,22 @@ jobs:
               ./build
               uname -a
 
+   alma:
+      docker:
+         - image: almalinux:latest
+      steps:
+         - checkout
+         - run: |
+              yum install -y 'dnf-command(config-manager)'
+              yum config-manager --set-enabled powertools -y
+              yum install -y gcc gcc-c++ diffutils make libedit-devel zlib-devel m4 cmake git boost-devel openmpi-devel llvm flex bison patch 
+              git clone https://github.com/asyncvlsi/actflow
+              cd actflow
+              git submodule update --init --recursive
+              mkdir /usr/local/cad
+              export ACT_HOME=/usr/local/cad
+              ./build
+
    rocky:
       docker:
          - image: rockylinux:9
@@ -53,4 +69,4 @@ workflows:
    version: 2
    build:
       jobs:
-          - rocky
+          - alma
