@@ -26,9 +26,7 @@ jobs:
          - run: |
               yum install -y 'dnf-command(config-manager)'
               yum config-manager --set-enabled powertools -y
-              yum install -y gcc gcc-c++ diffutils make libedit-devel zlib-devel m4 cmake git boost-devel openmpi-devel llvm flex bison patch which
-              git clone https://github.com/boostorg/boost
-              (cd boost; git checkout boost-1.81.0; git submodule update --init --recursive; ./bootstrap.sh; ./b2 install)
+              yum install -y gcc gcc-c++ diffutils make libedit-devel zlib-devel m4 cmake git libboost-all-dev openmpi-devel llvm flex bison patch which
               git clone https://github.com/asyncvlsi/actflow
               cd actflow
               git submodule update --init --recursive
